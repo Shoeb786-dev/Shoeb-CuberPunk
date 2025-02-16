@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shoeb | Cyberpunk</title>
+  <link rel="shortcut icon" href="https://i.pinimg.com/736x/1c/68/33/1c68338bd21aaeaf2ba9e894432a5a08.jpg" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=VT323&family=Press+Start+2P&family=Bungee&family=Monoton&display=swap" rel="stylesheet">
+  <style>
+      .font-orbitron { font-family: 'Orbitron', sans-serif; }
+  </style>
+</head>
+
+<body>
+  <div id="loading-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-black">
+    <div class="text-center">
+      <h2 id="scramble-text" class="text-4xl font-orbitron text-cyan-400 mb-4">INITIALIZING</h2>
+      <div class="flex items-center justify-center">
+        <div class="w-48 h-2 bg-gray-800 rounded-full overflow-hidden">
+          <div id="loading-bar" class="w-0 h-full bg-cyan-400 transition-all duration-300"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="main-content" class="opacity-0 transition-opacity duration-500">
+    <div class="main w-full font-orbitron text-l text-cyan-400 text-center">
+      <nav class="w-full fixed top-0 left-0 px-10 py-3 flex items-center justify-between z-10">
+          <img class="w-[150px] transition-all mix-blend-screen filter saturate-150 contrast-150" src="https://i.redd.it/3d-rendered-the-cyberpunk-logo-using-blender-v0-khopj82wqee91.png?width=1920&format=png&auto=webp&s=f42dbd8f5c04aedb9ba9291c1ba4d679029cc1f3" alt="image">
+        <div class="flex items-center gap-5">
+          <a href="index.html" class="text-sm md:text-base tracking-tight text-blue-400 mx-4 hover:text-yellow-300 hover:drop-shadow-[0_0_15px_#fde047] transition-all relative after:absolute after:w-0 after:h-0.5 after:bg-yellow-300 after:left-1/2 after:-bottom-1 after:transform after:-translate-x-1/2 hover:after:w-full after:transition-all after:duration-300 after:ease-out">Home</a>
+          <a href="/Shaikh-Mohd-Shoeb.pdf" target="_blank" class="text-sm md:text-base tracking-tight text-blue-400 mx-4 hover:text-yellow-300 hover:drop-shadow-[0_0_15px_#fde047] transition-all relative after:absolute after:w-0 after:h-0.5 after:bg-yellow-300 after:left-1/2 after:-bottom-1 after:transform after:-translate-x-1/2 hover:after:w-full after:transition-all after:duration-300 after:ease-out">About</a>
+          <a href="https://github.com/ShoebShaikh31?tab=repositories" target="_blank" class="text-sm md:text-base tracking-tight text-blue-400 mx-4 hover:text-yellow-300 hover:drop-shadow-[0_0_15px_#fde047] transition-all relative after:absolute after:w-0 after:h-0.5 after:bg-yellow-300 after:left-1/2 after:-bottom-1 after:transform after:-translate-x-1/2 hover:after:w-full after:transition-all after:duration-300 after:ease-out">Projects</a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shoebshaikh89279@gmail.com" target="_blank" class="text-sm md:text-base tracking-tight text-blue-400 mx-4 hover:text-yellow-300 hover:drop-shadow-[0_0_15px_#fde047] transition-all relative after:absolute after:w-0 after:h-0.5 after:bg-yellow-300 after:left-1/2 after:-bottom-1 after:transform after:-translate-x-1/2 hover:after:w-full after:transition-all after:duration-300 after:ease-out">Contact</a>
+        </div>
+      </nav>
+      <div class="w-full h-screen overflow-hidden">
+        <img class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 mix-blend-screen filter saturate-150 contrast-150" src="https://i.redd.it/3d-rendered-the-cyberpunk-logo-using-blender-v0-khopj82wqee91.png?width=1920&format=png&auto=webp&s=f42dbd8f5c04aedb9ba9291c1ba4d679029cc1f3" alt="image">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[23vw] h-[23vw] bg-blue-900 rounded-full z-[-1] blur-[50px] opacity-70 shadow-[0_0_200px_100px_rgba(37,99,235,0.7)]"></div>
+        <div id="stars-container" class="fixed inset-0 z-[-2] hidden"></div>
+        <canvas id="canvas"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="fixed bottom-4 right-4 z-20">
+    <button id="stars-toggle" class="text-cyan-400 px-2 py-2 rounded-lg font-orbitron hover: transition-colors duration-300 flex items-center gap-2">
+      <span></span>
+      <div class="w-3 h-3 rounded-full bg-red-500" id="stars-indicator"></div>
+    </button>
+  </div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
