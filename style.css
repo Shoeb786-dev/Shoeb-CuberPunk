@@ -23,6 +23,9 @@ img {
     -moz-user-select: none;
     -ms-user-select: none;
     pointer-events: none;
+    width: auto;
+    height: auto;
+    max-width: 100%;
 }
 
 /* Add these styles at the end */
@@ -49,11 +52,11 @@ img {
     transform-origin: center;
 }
 
-@keyframes twinkle {
+/*@keyframes twinkle {
     0% { opacity: 0; transform: translateX(0); }
     50% { opacity: 1; transform: translateX(10px); }
     100% { opacity: 0; transform: translateX(0); }
-}
+}*/
 
 .star {
     position: absolute;
@@ -64,13 +67,20 @@ img {
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.9), 
                 0 0 15px rgba(255, 255, 255, 0.5),
                 0 0 20px rgba(255, 255, 255, 0.3);
-    transition: opacity 0.5s ease-out;
-    will-change: transform, left, top; /* Optimize performance */
-    transform: translateZ(0); /* Enable hardware acceleration */
+    transition: box-shadow 0.5s ease-out;
+    will-change: transform, left, top, box-shadow, opacity;
+    transform: translateZ(0);
 }
 
 #stars-container {
     transition: opacity 0.5s ease-out;
+    position: fixed;
+    inset: 0;
+    z-index: 10; /* Increased z-index to ensure it's above other elements */
+    pointer-events: none;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
 #stars-container.hidden {
@@ -105,8 +115,11 @@ img {
 
   /* Adjust background glow */
   .bg-blue-900 {
-    width: 80vw !important;
-    height: 80vw !important;
+    width: 40vw !important; /* Much smaller for subtlety */
+    height: 40vw !important;
+    opacity: 0.15 !important; /* Very subtle opacity like desktop */
+    filter: blur(80px) !important; /* Increased blur for softer effect */
+    transform: translateZ(-1px) !important; /* Ensure it stays behind */
   }
 }
 
@@ -125,10 +138,67 @@ img {
     width: 2px !important;
     height: 2px !important;
   }
+
+  /* Further adjust background glow for smaller devices */
+  .bg-blue-900 {
+    width: 35vw !important; /* Even smaller for very small devices */
+    height: 35vw !important;
+    opacity: 0.12 !important; /* Even more subtle */
+    filter: blur(60px) !important;
+  }
 }
 
 .main {
     overflow-x: hidden; /* Prevent horizontal scrolling in main container */
     position: relative;
     width: 100%;
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 5000px;
+}
+
+/* Use hardware acceleration where beneficial */
+.star,
+#loading-screen > div,
+#scramble-text,
+#loading-bar,
+.nav-link {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Use more efficient selectors */
+.nav-link {
+    transition: color 0.3s ease;
+}
+
+/* Add loading state styles */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Add print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* Add this to your existing CSS */
+body.no-scroll {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+    height: 100vh !important;
 }
