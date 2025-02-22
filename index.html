@@ -4,6 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shoeb | Cyberpunk</title>
+  <!-- Preload critical resources -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" as="style">
+  <link rel="preload" href="./DamagedHelmet.gltf" as="fetch" crossorigin>
+  <link rel="preload" href="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/pond_bridge_night_1k.hdr" as="fetch" crossorigin>
+  
+  <!-- Load only the fonts you're using -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical scripts -->
+  <script src="https://cdn.tailwindcss.com" defer></script>
+  
+  <!-- Add meta description for SEO -->
+  <meta name="description" content="Cyberpunk-themed portfolio website showcasing creative work and projects">
+  
+  <!-- Add theme color for mobile browsers -->
+  <meta name="theme-color" content="#000000">
   <link rel="shortcut icon" href="https://i.pinimg.com/736x/1c/68/33/1c68338bd21aaeaf2ba9e894432a5a08.jpg" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=VT323&family=Press+Start+2P&family=Bungee&family=Monoton&display=swap" rel="stylesheet">
@@ -32,6 +48,7 @@
           <a href="/Shaikh-Mohd-Shoeb.pdf" target="_blank" class="text-sm md:text-base tracking-tight text-blue-400 mx-4 hover:text-yellow-300 hover:drop-shadow-[0_0_15px_#fde047] transition-all relative after:absolute after:w-0 after:h-0.5 after:bg-yellow-300 after:left-1/2 after:-bottom-1 after:transform after:-translate-x-1/2 hover:after:w-full after:transition-all after:duration-300 after:ease-out">About</a>
           <a href="https://github.com/ShoebShaikh31?tab=repositories" target="_blank" class="text-sm md:text-base tracking-tight text-blue-400 mx-4 hover:text-yellow-300 hover:drop-shadow-[0_0_15px_#fde047] transition-all relative after:absolute after:w-0 after:h-0.5 after:bg-yellow-300 after:left-1/2 after:-bottom-1 after:transform after:-translate-x-1/2 hover:after:w-full after:transition-all after:duration-300 after:ease-out">Projects</a>
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shoebshaikh89279@gmail.com" target="_blank" class="text-sm md:text-base tracking-tight text-blue-400 mx-4 hover:text-yellow-300 hover:drop-shadow-[0_0_15px_#fde047] transition-all relative after:absolute after:w-0 after:h-0.5 after:bg-yellow-300 after:left-1/2 after:-bottom-1 after:transform after:-translate-x-1/2 hover:after:w-full after:transition-all after:duration-300 after:ease-out">Contact</a>
+          <button id="stars-toggle" class="text-sm md:text-base tracking-tight text-blue-400 mx-4 hover:text-yellow-300 hover:drop-shadow-[0_0_15px_#fde047] transition-all relative after:absolute after:w-0 after:h-0.5 after:bg-yellow-300 after:left-1/2 after:-bottom-1 after:transform after:-translate-x-1/2 hover:after:w-full after:transition-all after:duration-300 after:ease-out">Click me!</button>
         </div>
       </nav>
       <div class="w-full h-screen overflow-hidden">
@@ -41,12 +58,6 @@
         <canvas id="canvas"></canvas>
       </div>
     </div>
-  </div>
-  <div class="fixed bottom-4 right-4 z-20">
-    <button id="stars-toggle" class="text-cyan-400 px-2 py-2 rounded-lg font-orbitron hover: transition-colors duration-300 flex items-center gap-2">
-      <span></span>
-      <div class="w-3 h-3 rounded-full bg-red-500" id="stars-indicator"></div>
-    </button>
   </div>
   <script type="module" src="main.js"></script>
 </body>
